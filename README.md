@@ -1,31 +1,29 @@
-# RazeTag guide
+# RazeTag
 
-The public, static user guide for RazeTag: inventory, photos, bundles, sales,
-refunds, tools, budgets, settings, backups, and phone permissions.
+The public promotional page for RazeTag, a local-first resale companion.
 
-This repository contains only the guide and its demo screenshots. It does not
-contain the Flutter app, inventory databases, backups, or personal product photos.
-Publishing the guide does not connect to anyone's app data.
+## Public files
 
-## Files
+- `index.html` — feature overview, local-sharing highlight, and inline styles.
+- `images/razetag-logo.png` — the app logo.
+- `images/razetag-promo.png` — promotional illustration, not a live app screenshot.
+- `.nojekyll` — serve these static files without Jekyll processing.
 
-- `index.html` — guide, styles, and screenshot viewer.
-- `images/` — 19 screenshots of demo data and the RazeTag logo.
-- `.nojekyll` — serve the existing static files without Jekyll processing.
+The detailed guide and its demonstration screenshots are intentionally excluded
+from the current public page. Do not add inventory databases, backup files,
+private guide copies, pairing codes, or personal product photos to this repository.
+This page does not connect to anyone's inventory.
+
+## Preview
+
+Open `index.html` in a browser, or serve this directory with a local HTTP server.
+No installation, API key, analytics, or backend is needed. Image paths are relative
+so the page also works beneath the `/razetag_h5/` path.
 
 ## GitHub Pages
 
-In Settings → Pages, choose **Deploy from a branch**, **main**, and **/ (root)**.
-Once deployment succeeds, the guide is available at:
+The publishing source is **main → / (root)**. Once reviewed and pushed, changes
+to this branch are deployed to <https://remyo.github.io/razetag_h5/>.
 
-https://remyo.github.io/razetag_h5/
-
-Future changes pushed to the selected publishing branch update the guide.
-
-## Local preview
-
-Open `index.html` in a browser, or serve this directory with a local HTTP server.
-Keep image paths relative so screenshots also work at the `/razetag_h5/` URL.
-
-Only publish assets intended for public sharing. Screenshot prices and items are
-examples, not live market information.
+Removing files from the current page does not erase previously published versions,
+Git history, downloads, or third-party caches. Treat all published assets as public.

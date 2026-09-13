@@ -1,1 +1,8 @@
 .DS_Store
+
+# Never publish private guide copies or local preview artifacts.
+.preview/
+private/
+backups/
+*Full-Guide*.html
+*Full-Guide*.zip
