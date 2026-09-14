@@ -4,25 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#f7f8fc">
+  <meta name="theme-color" content="#f8f6fc">
   <meta name="description" content="Meet RazeTag: your local-first resale companion for inventory, bundles, sales, budgets, and sharing selected items with nearby devices.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="RazeTag — Capture. Track. Resell smarter.">
   <meta property="og:description" content="Less admin, more clarity. Organize your stock, follow your sales, and share selected items over local Wi-Fi.">
   <meta property="og:url" content="https://remyo.github.io/razetag_h5/">
-  <meta property="og:image" content="https://remyo.github.io/razetag_h5/images/razetag-promo.png">
+  <meta property="og:image" content="https://remyo.github.io/razetag_h5/images/razetag-promo.png?v=peeking-20260914">
   <meta property="og:image:width" content="1536">
   <meta property="og:image:height" content="1024">
-  <meta property="og:image:alt" content="RazeTag promotional illustration of two nearby phones sharing product images.">
+  <meta property="og:image:alt" content="Promotional illustration of two nearby phones sharing product images, with RazeTag's purple peeking smiling-page and R-tag logo.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RazeTag — Capture. Track. Resell smarter.">
+  <meta name="twitter:description" content="Less admin, more clarity. Organize your stock, follow your sales, and share selected items over local Wi-Fi.">
+  <meta name="twitter:image" content="https://remyo.github.io/razetag_h5/images/razetag-promo.png?v=peeking-20260914">
+  <meta name="twitter:image:alt" content="Promotional illustration of two nearby phones sharing product images, with RazeTag's purple peeking smiling-page and R-tag logo.">
   <title>RazeTag — Capture. Track. Resell smarter.</title>
-  <link rel="icon" type="image/png" href="images/razetag-logo.png">
+  <link rel="icon" type="image/png" href="images/razetag-logo.png?v=peeking-20260914">
+  <link rel="apple-touch-icon" href="images/razetag-logo.png?v=peeking-20260914">
   <style>
-    :root { --ink:#151b30; --muted:#60697e; --blue:#365cde; --blue-dark:#2748bc; --line:#e4e7f0; --paper:#fff; --canvas:#f7f8fc; --radius:12px; }
+    :root { --ink:#151b30; --muted:#60697e; --accent:#7654c5; --accent-dark:#6040aa; --line:#e7e2ef; --paper:#fff; --canvas:#f8f6fc; --radius:12px; }
     * { box-sizing:border-box; }
     html { scroll-padding-top:110px; }
     body { margin:0; background:var(--canvas); color:var(--ink); font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
     a { color:inherit; text-decoration:none; -webkit-tap-highlight-color:transparent; }
-    a:focus-visible { outline:3px solid #7394ff; outline-offset:5px; }
+    a:focus-visible { outline:3px solid var(--accent); outline-offset:5px; }
     h1,h2,h3,p,figure { margin:0; }
     h1,h2,h3 { text-wrap:balance; }
     img { display:block; max-width:100%; }
@@ -31,34 +37,34 @@
     .symbols { position:absolute; width:0; height:0; overflow:hidden; }
     .skip { position:fixed; top:-100px; left:20px; z-index:30; padding:10px 18px; border-radius:8px; background:white; }
     .skip:focus { top:12px; }
-    .topbar { position:sticky; top:0; z-index:10; background:#f7f8fcf5; border-bottom:1px solid var(--line); }
+    .topbar { position:sticky; top:0; z-index:10; background:#f8f6fcf5; border-bottom:1px solid var(--line); }
     .topbar-inner { min-height:80px; display:flex; align-items:center; justify-content:space-between; gap:24px; padding-block:12px; }
     .brand { display:inline-flex; align-items:center; gap:10px; font-size:21px; letter-spacing:-.7px; font-weight:750; }
-    .brand img { width:36px; height:36px; border-radius:10px; }
+    .brand img { width:36px; height:36px; object-fit:cover; flex-shrink:0; border-radius:10px; }
     .nav { display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; }
     .nav a { padding:9px 14px; border-radius:8px; }
-    .nav a:hover { background:#e9edf8; }
-    .nav .nav-feature { color:var(--blue); background:#eaf0ff; }
+    .nav a:hover { background:#efeaf8; }
+    .nav .nav-feature { color:var(--accent); background:#efeaf8; }
     .hero { display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); align-items:center; gap:40px; padding-block:80px 62px; }
-    .eyebrow { display:flex; align-items:center; gap:8px; color:var(--blue); font-size:12px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; }
+    .eyebrow { display:flex; align-items:center; gap:8px; color:var(--accent); font-size:12px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; }
     .eyebrow::before { content:""; width:6px; height:6px; border-radius:50%; background:currentColor; flex:none; }
     h1 { margin-top:20px; font-size:clamp(3.2rem,5.2vw,4.6rem); letter-spacing:-.06em; line-height:1.08; font-weight:750; }
-    h1 span { color:var(--blue); }
+    h1 span { color:var(--accent); }
     .hero-copy>p { margin-top:24px; color:var(--muted); max-width:435px; font-size:17px; line-height:1.8; }
     .hero-actions { margin-top:28px; display:flex; gap:10px; flex-wrap:wrap; }
     .button { display:inline-flex; justify-content:center; align-items:center; gap:9px; min-height:44px; border:1px solid var(--line); border-radius:9px; padding:10px 17px; background:white; font-size:14px; font-weight:650; }
     .button .icon { width:17px; height:17px; }
-    .button:hover { border-color:#a9b8e5; background:#edf1ff; }
-    .button.primary { color:white; background:var(--blue); border-color:var(--blue); }
-    .button.primary:hover { background:var(--blue-dark); }
+    .button:hover { border-color:#bca8de; background:#f3eefa; }
+    .button.primary { color:white; background:var(--accent); border-color:var(--accent); }
+    .button.primary:hover { background:var(--accent-dark); border-color:var(--accent-dark); }
     .hero-facts { display:flex; flex-direction:column; gap:6px; margin-top:22px; font-size:12px; color:var(--muted); }
     .hero-facts span { display:flex; align-items:center; gap:7px; }
     .hero-facts .icon { width:15px; height:15px; color:#2b876e; }
     .hero-art { min-width:0; }
-    .hero-art img { width:100%; height:auto; border-radius:20px; border:1px solid #e3e8f8; background:white; }
+    .hero-art img { width:100%; height:auto; border-radius:20px; border:1px solid #e8e0f3; background:white; }
     .hero-art figcaption { text-align:center; margin-top:12px; font-size:10px; letter-spacing:.015em; color:var(--muted); }
     .category-strip { border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding-block:22px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px 24px; font-size:13px; font-weight:550; color:var(--muted); }
-    .category-strip span:last-child { color:var(--blue); }
+    .category-strip span:last-child { color:var(--accent); }
     .features { padding-block:82px; }
     .section-head { display:flex; align-items:flex-end; justify-content:space-between; gap:30px; margin-bottom:30px; }
     h2 { font-size:clamp(2rem,3.4vw,2.75rem); letter-spacing:-.045em; line-height:1.18; margin-top:13px; font-weight:700; }
@@ -66,7 +72,7 @@
     .feature-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
     .feature { padding:26px; background:white; border:1px solid var(--line); border-radius:var(--radius); }
     .feature-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:23px; }
-    .icon-tile { display:grid; place-items:center; width:42px; height:42px; border-radius:11px; color:var(--blue); background:#eef2ff; }
+    .icon-tile { display:grid; place-items:center; width:42px; height:42px; border-radius:11px; color:var(--accent); background:#f0ebf9; }
     .feature:nth-child(2) .icon-tile { color:#187865; background:#eaf6f2; }
     .feature:nth-child(3) .icon-tile { color:#96611a; background:#fff5e5; }
     .feature:nth-child(4) .icon-tile { color:#9760b4; background:#f6edf9; }
@@ -75,27 +81,27 @@
     .feature-number { font-size:12px; font-variant-numeric:tabular-nums; color:#81899b; }
     h3 { font-size:18px; font-weight:650; line-height:1.4; letter-spacing:-.025em; }
     .feature p { margin-top:10px; color:var(--muted); font-size:14px; line-height:1.75; }
-    .sharing { background:#2e51cc; color:white; border-radius:18px; padding:48px; }
+    .sharing { background:var(--accent-dark); color:white; border-radius:18px; padding:48px; }
     .sharing-top { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:36px; align-items:center; }
-    .sharing .eyebrow { color:#d1dcff; }
+    .sharing .eyebrow { color:#e8def7; }
     .sharing h2 { font-size:clamp(2.3rem,4vw,3.25rem); }
-    .sharing-copy>p { margin-top:20px; color:#e2e9ff; font-size:15px; max-width:410px; }
+    .sharing-copy>p { margin-top:20px; color:#f2ebff; font-size:15px; max-width:410px; }
     .sharing-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
-    .sharing-tags span { border:1px solid #ffffff40; background:#ffffff0c; border-radius:7px; padding:4px 9px; font-size:11px; color:#eef2ff; }
+    .sharing-tags span { border:1px solid #ffffff40; background:#ffffff0c; border-radius:7px; padding:4px 9px; font-size:11px; color:#f5efff; }
     .device-pair { display:flex; gap:14px; align-items:center; justify-content:center; padding:24px 8px; }
     .device { background:#ffffff10; border:1px solid #ffffff40; border-radius:20px; width:130px; min-height:179px; padding:22px 10px 16px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; }
-    .device img { width:52px; height:52px; border-radius:12px; }
-    .device span { font-size:12px; color:#e1e9ff; }
-    .transfer { display:flex; flex-direction:column; align-items:center; gap:14px; color:#d1e0ff; }
+    .device img { width:52px; height:52px; object-fit:cover; flex-shrink:0; border-radius:12px; }
+    .device span { font-size:12px; color:#f2ebff; }
+    .transfer { display:flex; flex-direction:column; align-items:center; gap:14px; color:#e8def7; }
     .transfer .icon { width:25px; height:25px; }
     .sharing-benefits { margin-top:36px; padding-top:30px; border-top:1px solid #ffffff33; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:30px; }
     .sharing-benefits h3 { font-size:16px; }
-    .sharing-benefits p { margin-top:8px; color:#dde6ff; font-size:13px; }
-    .sharing-note { margin-top:27px; color:#d4dfff; font-size:11px; line-height:1.8; max-width:820px; }
+    .sharing-benefits p { margin-top:8px; color:#efe7fb; font-size:13px; }
+    .sharing-note { margin-top:27px; color:#e8def7; font-size:11px; line-height:1.8; max-width:820px; }
     .privacy { padding-block:82px; }
     .privacy-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:30px; margin-top:32px; }
     .privacy-card { border-top:1px solid var(--line); padding-top:22px; }
-    .privacy-card>.icon { color:var(--blue); margin-bottom:14px; }
+    .privacy-card>.icon { color:var(--accent); margin-bottom:14px; }
     .privacy-card h3 { font-size:17px; }
     .privacy-card p { color:var(--muted); font-size:14px; margin-top:10px; }
     .footer { border-top:1px solid var(--line); padding-block:28px 36px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
@@ -103,7 +109,7 @@
     .footer .brand img { width:30px; height:30px; border-radius:8px; }
     .footer p { color:var(--muted); font-size:12px; margin-top:8px; }
     .footer>a { display:flex; align-items:center; gap:8px; color:var(--muted); font-size:12px; padding:10px 0 10px 10px; }
-    .footer>a:hover { color:var(--blue); }
+    .footer>a:hover { color:var(--accent); }
     .footer>a .icon { width:16px; height:16px; transform:rotate(-90deg); }
     @media(min-width:1400px) { .hero { gap:54px; } }
     @media(max-width:1020px) { .wrap { width:calc(100% - 48px); } .hero { gap:24px; padding-top:56px; } h1 { font-size:3.4rem; } .hero-copy>p { font-size:15px; } .feature-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .sharing { padding:34px; } .device-pair { gap:10px; padding-inline:0; } .device { width:108px; } }
@@ -130,7 +136,7 @@
 
   <header class="topbar">
     <div class="wrap topbar-inner">
-      <a class="brand" href="#top" aria-label="RazeTag home"><img src="images/razetag-logo.png" alt="" width="36" height="36">RazeTag</a>
+      <a class="brand" href="#top" aria-label="RazeTag home"><img src="images/razetag-logo.png?v=peeking-20260914" alt="" width="36" height="36">RazeTag</a>
       <nav class="nav" aria-label="Main navigation">
         <a href="#features">Features</a><a href="#privacy">Your data</a><a class="nav-feature" href="#sharing">Local sharing</a>
       </nav>
@@ -153,7 +159,7 @@
         </div>
       </div>
       <figure class="hero-art">
-        <img src="images/razetag-promo.png" alt="Promotional illustration of two nearby phones sharing product images, with the blue RazeTag logo on one phone." width="1536" height="1024" fetchpriority="high">
+        <img src="images/razetag-promo.png?v=peeking-20260914" alt="Promotional illustration of two nearby phones sharing product images, with RazeTag's purple peeking smiling-page and R-tag logo." width="1536" height="1024" fetchpriority="high">
         <figcaption>Promotional illustration · no personal inventory shown</figcaption>
       </figure>
     </section>
@@ -186,9 +192,9 @@
           <div class="sharing-tags"><span>Same Wi-Fi</span><span>No cloud relay</span></div>
         </div>
         <div class="device-pair" role="img" aria-label="Selected items transfer over local Wi-Fi from your RazeTag device to another RazeTag device.">
-          <div class="device"><img src="images/razetag-logo.png" width="52" height="52" alt=""><span>Your device</span></div>
+          <div class="device"><img src="images/razetag-logo.png?v=peeking-20260914" width="52" height="52" alt=""><span>Your device</span></div>
           <div class="transfer" aria-hidden="true"><svg class="icon"><use href="#i-wifi"/></svg><svg class="icon"><use href="#i-arrow"/></svg></div>
-          <div class="device"><img src="images/razetag-logo.png" width="52" height="52" alt=""><span>Their device</span></div>
+          <div class="device"><img src="images/razetag-logo.png?v=peeking-20260914" width="52" height="52" alt=""><span>Their device</span></div>
         </div>
       </div>
       <div class="sharing-benefits">
@@ -210,7 +216,7 @@
   </main>
 
   <footer class="wrap footer">
-    <div><a class="brand" href="#top" aria-label="RazeTag home"><img src="images/razetag-logo.png" width="30" height="30" alt="">RazeTag</a><p>Capture. Track. Resell smarter.</p></div>
+    <div><a class="brand" href="#top" aria-label="RazeTag home"><img src="images/razetag-logo.png?v=peeking-20260914" width="30" height="30" alt="">RazeTag</a><p>Capture. Track. Resell smarter.</p></div>
     <a href="#top">Back to top<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </footer>
 </body>
