@@ -15,7 +15,7 @@ let html = readFileSync(source, 'utf8');
 const originalHash = createHash('sha256').update(html).digest('hex');
 const chapterCount = (html.match(/class="chapter(?:\s|\")/g) || []).length;
 const screenCount = (html.match(/\bdata-screen=/g) || []).length;
-if (chapterCount !== 13 || screenCount !== 28) throw new Error(`Review the landing-page counts before syncing this guide: ${chapterCount} chapters, ${screenCount} screenshots.`);
+if (chapterCount !== 15 || screenCount < 28 || screenCount > 40) throw new Error(`Review the guide structure before syncing: ${chapterCount} chapters, ${screenCount} screenshots.`);
 if (!html.includes('Your everyday guide')) throw new Error('Unexpected guide source.');
 const plainSource = html.replace(/data:image\/[^;]+;base64,[A-Za-z0-9+/=]+/g, '');
 if (/\/Users\/|file:\/\/|localhost|127\.0\.0\.1|<iframe\b/i.test(plainSource)) throw new Error('Local-only reference found in the shareable guide.');
@@ -26,7 +26,7 @@ function replaceOnce(from, to) {
 replaceOnce('<title>RazeTag — Your everyday guide</title>', '<title>RazeTag — User guide</title>');
 replaceOnce('<a class="brand" href="#welcome">', '<a class="brand" href="index.html" aria-label="Back to RazeTag home">');
 replaceOnce('<div class="top-actions">', '<div class="top-actions"><a class="button quiet guide-home" href="index.html">← Home</a>');
-replaceOnce('<a href="#welcome">Back to top ↑</a></footer>', '<a href="index.html">← Back to RazeTag</a><a href="#welcome">Back to top ↑</a></footer>');
+replaceOnce('<a href="#welcome">Back to top ↑</a></footer>', '<a href="index.html">← Back to RazeTag</a><a href="privacy.html">Privacy Policy</a><a href="mailto:razedevworkspace@gmail.com">Support</a><a href="#welcome">Back to top ↑</a></footer>');
 replaceOnce('</head>', `  <style id="website-navigation">
     .topbar{height:auto;min-height:82px;padding-block:12px;flex-wrap:wrap}
     .top-actions{flex-wrap:wrap;max-width:100%}
@@ -44,7 +44,7 @@ html = html.replace(/\b(src|href)="data:(image\/(?:png|jpeg|svg\+xml));base64,([
   assets.set(relative, bytes);
   return `${attr}="${relative}"`;
 });
-if (assets.size !== 29 || /data:image\//.test(html)) throw new Error('Unexpected or unextracted guide assets.');
+if (assets.size < 29 || assets.size > screenCount + 1 || /data:image\//.test(html)) throw new Error('Unexpected or unextracted guide assets.');
 for (const [, script] of html.matchAll(/<script>([\s\S]*?)<\/script>/g)) new Script(script);
 const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);
 if (new Set(ids).size !== ids.length) throw new Error('Duplicate guide IDs.');
