@@ -1,127 +1,120 @@
-# RazeTag
+# RazeTag H5
 
-The public promotional page for RazeTag, a local-first resale companion.
+The public RazeTag introduction and end-user guide. A static, local-first
+resale story—not a portal into anyone’s real inventory.
 
-## Public files
+## October 8, 2026 refresh
 
-- `index.html` — a short, benefit-led introduction: less admin, clearer stock and reports, local data ownership, and links to the user guide.
-- `guide.html` — the end-user walkthrough, including presentation mode and enlargeable demo screenshots.
-- `privacy.html` — the app and website Privacy Policy, with the owner-confirmed privacy and support contact `razedevworkspace@gmail.com`. Review the disclosures before publication and store submission.
-- `images/guide/` — the guide's demo screenshots and logo, loaded separately from the landing page.
-- `images/razetag-logo.png` — the purple peeking smiling-page and R-tag app logo.
-- `images/razetag-home-20260922.webp` — refreshed Android-layout Home screenshot, using isolated demonstration data.
-- `images/razetag-desktop-20260922.webp` — real macOS-target split workspace rendered with isolated demonstration inventory.
-- `images/razetag-overview-20260922.png` — 1200 × 630 social preview composed from those real app captures and existing branding.
-- `images/razetag-sync-devices-20260923.webp` — optimized 1536 × 1024 generated phone/laptop/desktop illustration (about 85 KB). It is labeled as conceptual, not an app screenshot; syncing remains one pair at a time.
-- Earlier Home and promotional assets remain available for compatibility with previously shared links, but are no longer displayed by the landing page.
-- `images/razetag-promo.png` — earlier sharing illustration, retained but no longer displayed by the landing page.
-- `.nojekyll` — serve these static files without Jekyll processing.
+The homepage now uses a responsive purple visual system, real demo app screens,
+and the existing peeking and waving mascots. It leads with six practical features:
+inventory, money tracking, purchase bundles, quantity sales, Listing tools, and
+Showcase. A three-step first-item walkthrough, worked examples, and six expandable
+FAQs help readers get started without opening the full guide immediately.
 
-The landing page explains who RazeTag helps and why it is useful, rather than
-listing every tool. A short recent-additions section explains stock history,
-partial payments and saved purchase conversions without sending readers to
-another page. A Mac preview introduces the wider workspace. Local sync has its
-own homepage section with the basic connection flow, approval requirements and
-privacy limits. The detailed walkthrough remains in the guide. Only the top
-navigation and final guide call-to-action link to it. The guide opens in the
-same tab. The guide's Home button returns to the landing page.
-Only the newly prepared end-user guide and its demonstration screenshots are
-included. Do not add inventory databases, backup files, private/older guide copies,
-pairing codes, test harnesses, or personal product photos to this repository.
-None of the pages connect to anyone's inventory. Once deployed, they are public.
+Local network workflows are explained separately:
 
-The page uses the approved purple branding (`#7654C5`, with `#6040AA` for darker
-accents). Logo URLs use `?v=peeking-20260914`; refreshed screenshots and social
-artwork use date-versioned filenames. Previously shared social previews may need to be recrawled
-before they display the update.
+- **Selected sharing:** a one-time handoff of chosen items.
+- **Ordinary sync:** full private inventory between two trusted devices.
+- **Shop team:** owner-approved, permission-based selling access. The current
+  member catalog has no photos; one owner–member foreground connection at a time.
 
-## Preview
+There are still exactly two full-guide links on the homepage: navigation and the
+closing call to action. No download/store availability, cloud storefront,
+background sync, automatic marketplace publishing, or payment processing is promised.
 
-Open `index.html` in a browser, or serve this directory with a local HTTP server.
-No installation, API key, analytics, or backend is needed. Image paths are relative
-so the page also works beneath the `/razetag_h5/` path.
+The guide has **17 chapters and 30 existing demonstration screenshots**, with a
+task chooser and new Showcase and Shop team walkthroughs. Written instructions
+were checked against app revision **797f06b**. The existing September captures are
+labeled as examples; they are not presented as new October interfaces.
+Buying assistant and Stock audit are not promoted because their Tools entries
+are hidden in the current app.
 
-## Refreshing the guide
+The Privacy Policy has been updated to describe Showcase and Shop team alongside
+existing permissions, optional online services, copies, backups, and retention.
+Privacy/support contact: **razedevworkspace@gmail.com**.
 
-The standalone original remains in the app repository at `docs/RazeTag-Features.html`.
-Its authored source is `docs/presentation/`. Rebuild it with
-`node docs/presentation/package.mjs` in the app repository, then refresh the web
-copy from that reviewed file by running this command in the website repository:
+## Files
+
+- `index.html` — modern homepage, key features, quick start, Mac preview, local
+  network options, data ownership, FAQs, and guide access.
+- `styles/site.css` — local, responsive homepage styles; no remote fonts.
+- `guide.html` — walkthroughs with screenshot enlargement, chapter navigation,
+  presentation mode, and printing.
+- `privacy.html` — current app/website Privacy Policy.
+- `scripts/sync-guide.mjs` — reproducible website guide generator.
+- `scripts/check.mjs` — local browser regression suite.
+- `.nojekyll` — serve as ordinary static GitHub Pages files.
+
+## Images and provenance
+
+- `images/razetag-logo.png` — approved purple peeking-page/R-tag logo.
+- `images/razetag-home-20260922.webp` and
+  `images/razetag-desktop-20260922.webp` — real phone and Mac production-widget
+  layouts rendered with isolated demonstration data, not personal inventory.
+- `images/razetag-item-editor-20261008.webp` — optimized copy of the existing
+  demonstration item-editor capture, retaining its aspect ratio.
+- `images/razetag-mascot-peek-20261008.webp` and
+  `images/razetag-mascot-wave-20261008.webp` — resized, optimized copies of the
+  existing app’s transparent branded mascot assets. The original logo is unchanged.
+- `images/razetag-sync-devices-20260923.webp` — conceptual device illustration,
+  explicitly labeled “not actual app screens” and “one sync pair at a time.”
+- `images/razetag-overview-20260922.png` — existing 1200 × 630 social preview.
+- `images/guide/` — 31 content-versioned files: 30 demo captures and the logo.
+
+Screenshot provenance is recorded in the app repository under
+`docs/presentation/testing/SCREENSHOT-PROVENANCE.md` and
+`REFRESH-20260922.md`. Mascot provenance is in
+`docs/branding-concepts/showcase-mascot.md` and
+`showcase-peeking-mascot.md`. Earlier public assets are retained so previously
+shared image links keep working.
+
+Do not publish databases, backups, old private guide copies, pairing codes,
+personal product photos, or test harnesses. None of these pages reads app data.
+Treat everything committed to this repository as public.
+
+## Preview and checks
+
+Open `index.html`, or serve this folder with a local HTTP server. Relative paths
+work both from a file and beneath the GitHub Pages project path.
+
+Run:
+
+```sh
+node scripts/check.mjs
+```
+
+The suite checks desktop, tablet, phone, 320px width, 200% text, image proportions,
+all guide chapters, keyboard FAQs, focus restoration, printing, local links,
+HTTP/project-path/file-offline loading, no external requests, and public-content
+safety. Reports and screenshots stay in ignored `.preview/redesign-20261008/`.
+Tests never access personal app data or publish changes.
+
+## Regenerating the guide
+
+The app’s standalone September source remains unchanged at
+`../razetag/docs/RazeTag-Features.html`. Regenerate the website copy with:
 
 ```sh
 node scripts/sync-guide.mjs ../razetag/docs/RazeTag-Features.html
 ```
 
-This does not edit the original. It adds website navigation and extracts embedded
-pictures to content-versioned, cacheable PNGs so the guide can load them as needed.
-The landing page does not preload the guide or its screenshots. If the guide's
-chapter or screenshot count changes, review the landing-page copy and sync guard
-together before updating. Superseded image files are not deleted automatically.
+The generator extracts existing embedded images and adds reviewed website-only
+instructions for the current Listing tools, Showcase, Shop team, QR styles, and
+Excel reports. It also adds the task chooser and website navigation. These
+enrichments live in the generator, so regeneration does not overwrite them.
 
-## September 22 refresh
+The guard expects 15 upstream chapters / 30 screenshots and produces 17 website
+chapters. If the upstream guide changes, review the exact source markers and
+current app flows before updating the transform. Screenshots stay byte-for-byte
+unchanged; superseded public assets are not automatically deleted.
 
-The guide now has 15 chapters, including separate local-sync and desktop chapters.
-Stock adjustment/restocking, deposits and remaining payments, and fixed saved
-currency conversion were checked against current app code. Display estimates,
-saved conversions and mixed-currency report exclusions are explained separately.
-The Mac guide does not promise desktop camera/OCR tools or Windows/Linux support.
-Sync is described as an approved two-device foreground session, not cloud sync
-or a replacement for backups. In-progress divider/session and sync-queue refinements
-are not advertised as released features.
+## Publication
 
-Four fresh app screenshots were captured from production widgets in an isolated
-Flutter test harness, not a personal device inventory. They use synthetic records
-and licensed product photography. The app repository's
-`docs/presentation/testing/REFRESH-20260922.md` records capture provenance.
+GitHub Pages uses **main → / (root)** at
+<https://remyo.github.io/razetag_h5/>. Editing or previewing locally does not publish.
+Commit/push only when the user requests it.
 
-Run `node scripts/check.mjs` to check phone/tablet/desktop layouts, enlarged text,
-image loading, navigation, screenshot dialogs and guide presentation mode.
-Reports and browser captures stay under the ignored `.preview/` directory.
-Editing these files does not publish them; no commit or push is part of the refresh.
-
-### September 23 homepage simplification
-
-The homepage has exactly two guide links. Its hero actions scroll to benefits
-and local sync; recent-addition cards and the Mac screenshot are informational,
-not disguised navigation. The dedicated sync section explains same-Wi-Fi,
-two-device, foreground sessions and that full private records are included.
-The QA script guards this link count and tests in-page sync navigation.
-
-### Sync illustration and Privacy Policy
-
-The sync section now uses a purpose-made purple device illustration, with native
-aspect ratio, lazy loading, and a two-device-session caption. The full generation
-prompt and provenance are retained locally in the ignored
-`.preview/sync-image-20260923.md` file.
-
-The homepage and guide footers link to `privacy.html` and the support email. The guide sync script
-preserves those footer links when the guide is refreshed. The policy explains
-local data, optional network requests, ML Kit SDK diagnostics, device permissions,
-local transfer, exported copies, system backups, and learned-barcode retention.
-It does not claim that on-device recognition means zero SDK network activity or
-that deleting a listing recalls previously shared data.
-
-Before publishing the policy:
-
-- The owner confirmed `razedevworkspace@gmail.com` for privacy and support on
-  September 23. Keep it monitored and review the developer identity used in the
-  store listing. The missing-contact notice and `noindex` tag have been removed.
-- Reconcile the policy with the final release and all bundled SDK disclosures.
-  The merged Android manifest includes permissions added by camera/storage plugins;
-  inspect these separately even though the app's cameras disable audio capture.
-- Publish an accessible HTTPS page, link it from the app, and complete the store
-  privacy/Data safety forms. This website change does not modify app settings or
-  those forms and is not a guarantee of store approval or legal compliance.
-- Review the policy again if accounts, cloud sync, ads, payments, analytics, or the
-  website's hosting provider change. The current page documents current behavior.
-
-Reference requirements: [Apple privacy guidelines](https://developer.apple.com/app-store/review/guidelines/#privacy)
-and [Google Play User Data](https://support.google.com/googleplay/android-developer/answer/10144311?hl=en).
-
-## GitHub Pages
-
-The publishing source is **main → / (root)**. Once reviewed and pushed, changes
-to this branch are deployed to <https://remyo.github.io/razetag_h5/>.
-
-Removing files from the current page does not erase previously published versions,
-Git history, downloads, or third-party caches. Treat all published assets as public.
+Before a store submission, review policy disclosures against the final app and
+bundled SDKs, then complete the platform privacy forms. The website policy is not
+a guarantee of store approval or legal compliance. Git history, cached pages,
+and files previously downloaded cannot be recalled by editing this website.
