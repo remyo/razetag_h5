@@ -38,7 +38,7 @@ replaceOnce('<title>RazeTag — Your everyday guide</title>', '<title>RazeTag �
 replaceOnce('Your friendly guide to RazeTag: add stock, organize purchases, record sales, track your money, and keep a safe copy of your inventory.', 'Practical RazeTag walkthroughs: add stock, prepare listings, show products to customers, work with your shop team, record sales, and protect your inventory.');
 replaceOnce('<a class="brand" href="#welcome">', '<a class="brand" href="index.html" aria-label="Back to RazeTag home">');
 replaceOnce('<div class="top-actions">', '<div class="top-actions"><a class="button quiet guide-home" href="index.html">← Home</a>');
-replaceOnce('<a href="#welcome">Back to top ↑</a></footer>', '<a href="index.html">← Back to RazeTag</a><a href="privacy.html">Privacy Policy</a><a href="mailto:razedevworkspace@gmail.com">Support</a><a href="#welcome">Back to top ↑</a></footer>');
+replaceOnce('<a href="#welcome">Back to top ↑</a></footer>', '<a href="index.html">← Back to RazeTag</a><a href="privacy.html">Privacy Policy</a><a href="mailto:razeappdev@gmail.com">Support</a><a href="#welcome">Back to top ↑</a></footer>');
 replaceOnce('</head>', `  <style id="website-navigation">
     :root{--ink:#211b32;--muted:#706a7d;--line:#e8e4ed;--page:#faf9fc;--radius:16px}
     .topbar{height:auto;min-height:78px;padding-block:12px;flex-wrap:wrap;background:#fff}

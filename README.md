@@ -31,7 +31,7 @@ are hidden in the current app.
 
 The Privacy Policy has been updated to describe Showcase and Shop team alongside
 existing permissions, optional online services, copies, backups, and retention.
-Privacy/support contact: **razedevworkspace@gmail.com**.
+Privacy/support contact: **razeappdev@gmail.com**.
 
 ## Files
 
@@ -118,3 +118,25 @@ Before a store submission, review policy disclosures against the final app and
 bundled SDKs, then complete the platform privacy forms. The website policy is not
 a guarantee of store approval or legal compliance. Git history, cached pages,
 and files previously downloaded cannot be recalled by editing this website.
+
+## RazeDev publication
+
+This repository is the editing source for the public `razetag` website snapshot
+in `remyo/razedev`. The new home is
+`https://remyo.github.io/razedev/razetag/home/` and the policy is
+`https://remyo.github.io/razedev/razetag/privacy/`. These are intended deployment
+addresses; creating the workflow does not publish them.
+
+After reviewing and pushing the website changes to `main`, run **Actions →
+Publish website to RazeDev → Run workflow**, selecting `main`. Set the private
+Actions secret `RAZEDEV_PUBLISH_TOKEN` first: a fine-grained token selecting only
+`remyo/razedev` with Contents read/write. Never commit or paste the token.
+The workflow exports only this product's approved pages/assets, validates the
+combined site, and pushes only `public/razetag/`. RazeDev then deploys Pages.
+Publishing is manual; ordinary source pushes alone do not republish the website.
+
+Update RazeDev's exact asset manifest when website dependencies change, including
+content-hashed guide images. Keep development files, guide generators, test
+reports, backups, and Git history in this source repository. Published browser
+files are public even if this repository is private. Preserve old Pages URLs
+until existing app/store policy links have a separately verified migration.
