@@ -43,6 +43,7 @@ Privacy/support contact: **razeappdev@gmail.com**.
 - `privacy.html` — current app/website Privacy Policy.
 - `scripts/sync-guide.mjs` — reproducible website guide generator.
 - `scripts/check.mjs` — local browser regression suite.
+- `publish.sh` — publish this website to RazeDev using GitHub SSH.
 - `.nojekyll` — serve as ordinary static GitHub Pages files.
 
 ## Images and provenance
@@ -124,8 +125,32 @@ and files previously downloaded cannot be recalled by editing this website.
 This repository is the editing source for the public `razetag` website snapshot
 in `remyo/razedev`. The new home is
 `https://remyo.github.io/razedev/razetag/home/` and the policy is
-`https://remyo.github.io/razedev/razetag/privacy/`. These are intended deployment
-addresses; creating the workflow does not publish them.
+`https://remyo.github.io/razedev/razetag/privacy/`.
+
+From this repository's `main` branch, run:
+
+```sh
+sh publish.sh gith5 "update privacy"
+```
+
+The commit message is optional: `sh publish.sh gith5` uses a default message.
+Requires Git, Node.js 24+, GitHub SSH access, and a configured Git commit identity.
+No publishing token or sibling RazeDev checkout is needed. The script fetches a
+fresh temporary RazeDev `main`, validates the website, commits all tracked source
+changes and new files listed in the public manifest, pushes this source `main`,
+then publishes only `public/razetag/`. RazeDev deploys Pages automatically if the
+export changed. The temporary clone is removed on exit.
+
+Review all tracked changes before running it. Unexpected new files are rejected,
+including staged files outside the website manifest; commit intentional new
+development files separately. If this source is behind GitHub, reconcile it
+first. Validation failures do not create a source commit; a later push failure
+keeps your edits/local commit so you can resolve the problem and rerun. The
+script never force-pushes, resets source changes, or changes your branch.
+
+For help, run `sh publish.sh --help`.
+
+### Optional GitHub Actions publishing
 
 After reviewing and pushing the website changes to `main`, run **Actions →
 Publish website to RazeDev → Run workflow**, selecting `main`. Set the private
@@ -133,7 +158,8 @@ Actions secret `RAZEDEV_PUBLISH_TOKEN` first: a fine-grained token selecting onl
 `remyo/razedev` with Contents read/write. Never commit or paste the token.
 The workflow exports only this product's approved pages/assets, validates the
 combined site, and pushes only `public/razetag/`. RazeDev then deploys Pages.
-Publishing is manual; ordinary source pushes alone do not republish the website.
+This alternative requires the secret; the local SSH script above does not.
+Ordinary source pushes alone do not republish the RazeDev website.
 
 Update RazeDev's exact asset manifest when website dependencies change, including
 content-hashed guide images. Keep development files, guide generators, test
