@@ -1,168 +1,22 @@
-# RazeTag H5
+# RazeTag legacy website host
 
-The public RazeTag introduction and end-user guide. A static, local-first
-resale story—not a portal into anyone’s real inventory.
+Website editing has moved to the private [web_razedev](https://github.com/remyo/web_razedev)
+repository, in `razetag/`. The current public website is
+[RazeTag](https://remyo.github.io/razedev/razetag/home/) and its
+[privacy policy](https://remyo.github.io/razedev/razetag/privacy/).
 
-## October 8, 2026 refresh
+This public repository stays online to keep old app and store privacy links
+working. Its original HTML pages forward to the corresponding current RazeDev
+routes; their complete original page bodies and assets remain as a fallback.
+Do not rename, privatize, or delete this repository until all old URLs have been
+retired. Keep Pages serving `main` from the repository root.
 
-The homepage now uses a responsive purple visual system, real demo app screens,
-and the existing peeking and waving mascots. It leads with six practical features:
-inventory, money tracking, purchase bundles, quantity sales, Listing tools, and
-Showcase. A three-step first-item walkthrough, worked examples, and six expandable
-FAQs help readers get started without opening the full guide immediately.
-
-Local network workflows are explained separately:
-
-- **Selected sharing:** a one-time handoff of chosen items.
-- **Ordinary sync:** full private inventory between two trusted devices.
-- **Shop team:** owner-approved, permission-based selling access. The current
-  member catalog has no photos; one owner–member foreground connection at a time.
-
-There are still exactly two full-guide links on the homepage: navigation and the
-closing call to action. No download/store availability, cloud storefront,
-background sync, automatic marketplace publishing, or payment processing is promised.
-
-The guide has **17 chapters and 30 existing demonstration screenshots**, with a
-task chooser and new Showcase and Shop team walkthroughs. Written instructions
-were checked against app revision **797f06b**. The existing September captures are
-labeled as examples; they are not presented as new October interfaces.
-Buying assistant and Stock audit are not promoted because their Tools entries
-are hidden in the current app.
-
-The Privacy Policy has been updated to describe Showcase and Shop team alongside
-existing permissions, optional online services, copies, backups, and retention.
-Privacy/support contact: **razeappdev@gmail.com**.
-
-## Files
-
-- `index.html` — modern homepage, key features, quick start, Mac preview, local
-  network options, data ownership, FAQs, and guide access.
-- `styles/site.css` — local, responsive homepage styles; no remote fonts.
-- `guide.html` — walkthroughs with screenshot enlargement, chapter navigation,
-  presentation mode, and printing.
-- `privacy.html` — current app/website Privacy Policy.
-- `scripts/sync-guide.mjs` — reproducible website guide generator.
-- `scripts/check.mjs` — local browser regression suite.
-- `publish.sh` — publish this website to RazeDev using GitHub SSH.
-- `.nojekyll` — serve as ordinary static GitHub Pages files.
-
-## Images and provenance
-
-- `images/razetag-logo.png` — approved purple peeking-page/R-tag logo.
-- `images/razetag-home-20260922.webp` and
-  `images/razetag-desktop-20260922.webp` — real phone and Mac production-widget
-  layouts rendered with isolated demonstration data, not personal inventory.
-- `images/razetag-item-editor-20261008.webp` — optimized copy of the existing
-  demonstration item-editor capture, retaining its aspect ratio.
-- `images/razetag-mascot-peek-20261008.webp` and
-  `images/razetag-mascot-wave-20261008.webp` — resized, optimized copies of the
-  existing app’s transparent branded mascot assets. The original logo is unchanged.
-- `images/razetag-sync-devices-20260923.webp` — conceptual device illustration,
-  explicitly labeled “not actual app screens” and “one sync pair at a time.”
-- `images/razetag-overview-20260922.png` — existing 1200 × 630 social preview.
-- `images/guide/` — 31 content-versioned files: 30 demo captures and the logo.
-
-Screenshot provenance is recorded in the app repository under
-`docs/presentation/testing/SCREENSHOT-PROVENANCE.md` and
-`REFRESH-20260922.md`. Mascot provenance is in
-`docs/branding-concepts/showcase-mascot.md` and
-`showcase-peeking-mascot.md`. Earlier public assets are retained so previously
-shared image links keep working.
-
-Do not publish databases, backups, old private guide copies, pairing codes,
-personal product photos, or test harnesses. None of these pages reads app data.
-Treat everything committed to this repository as public.
-
-## Preview and checks
-
-Open `index.html`, or serve this folder with a local HTTP server. Relative paths
-work both from a file and beneath the GitHub Pages project path.
-
-Run:
+The old publishing workflow is removed and `publish.sh` stops with migration
+instructions, so this compatibility copy cannot overwrite the current website.
+From the private `web_razedev` repository's `main` branch, publish with:
 
 ```sh
-node scripts/check.mjs
+sh publish.sh gith5 razetag "update website"
 ```
 
-The suite checks desktop, tablet, phone, 320px width, 200% text, image proportions,
-all guide chapters, keyboard FAQs, focus restoration, printing, local links,
-HTTP/project-path/file-offline loading, no external requests, and public-content
-safety. Reports and screenshots stay in ignored `.preview/redesign-20261008/`.
-Tests never access personal app data or publish changes.
-
-## Regenerating the guide
-
-The app’s standalone September source remains unchanged at
-`../razetag/docs/RazeTag-Features.html`. Regenerate the website copy with:
-
-```sh
-node scripts/sync-guide.mjs ../razetag/docs/RazeTag-Features.html
-```
-
-The generator extracts existing embedded images and adds reviewed website-only
-instructions for the current Listing tools, Showcase, Shop team, QR styles, and
-Excel reports. It also adds the task chooser and website navigation. These
-enrichments live in the generator, so regeneration does not overwrite them.
-
-The guard expects 15 upstream chapters / 30 screenshots and produces 17 website
-chapters. If the upstream guide changes, review the exact source markers and
-current app flows before updating the transform. Screenshots stay byte-for-byte
-unchanged; superseded public assets are not automatically deleted.
-
-## Publication
-
-GitHub Pages uses **main → / (root)** at
-<https://remyo.github.io/razetag_h5/>. Editing or previewing locally does not publish.
-Commit/push only when the user requests it.
-
-Before a store submission, review policy disclosures against the final app and
-bundled SDKs, then complete the platform privacy forms. The website policy is not
-a guarantee of store approval or legal compliance. Git history, cached pages,
-and files previously downloaded cannot be recalled by editing this website.
-
-## RazeDev publication
-
-This repository is the editing source for the public `razetag` website snapshot
-in `remyo/razedev`. The new home is
-`https://remyo.github.io/razedev/razetag/home/` and the policy is
-`https://remyo.github.io/razedev/razetag/privacy/`.
-
-From this repository's `main` branch, run:
-
-```sh
-sh publish.sh gith5 "update privacy"
-```
-
-The commit message is optional: `sh publish.sh gith5` uses a default message.
-Requires Git, Node.js 24+, GitHub SSH access, and a configured Git commit identity.
-No publishing token or sibling RazeDev checkout is needed. The script fetches a
-fresh temporary RazeDev `main`, validates the website, commits all tracked source
-changes and new files listed in the public manifest, pushes this source `main`,
-then publishes only `public/razetag/`. RazeDev deploys Pages automatically if the
-export changed. The temporary clone is removed on exit.
-
-Review all tracked changes before running it. Unexpected new files are rejected,
-including staged files outside the website manifest; commit intentional new
-development files separately. If this source is behind GitHub, reconcile it
-first. Validation failures do not create a source commit; a later push failure
-keeps your edits/local commit so you can resolve the problem and rerun. The
-script never force-pushes, resets source changes, or changes your branch.
-
-For help, run `sh publish.sh --help`.
-
-### Optional GitHub Actions publishing
-
-After reviewing and pushing the website changes to `main`, run **Actions →
-Publish website to RazeDev → Run workflow**, selecting `main`. Set the private
-Actions secret `RAZEDEV_PUBLISH_TOKEN` first: a fine-grained token selecting only
-`remyo/razedev` with Contents read/write. Never commit or paste the token.
-The workflow exports only this product's approved pages/assets, validates the
-combined site, and pushes only `public/razetag/`. RazeDev then deploys Pages.
-This alternative requires the secret; the local SSH script above does not.
-Ordinary source pushes alone do not republish the RazeDev website.
-
-Update RazeDev's exact asset manifest when website dependencies change, including
-content-hashed guide images. Keep development files, guide generators, test
-reports, backups, and Git history in this source repository. Published browser
-files are public even if this repository is private. Preserve old Pages URLs
-until existing app/store policy links have a separately verified migration.
+Contact: [razeappdev@gmail.com](mailto:razeappdev@gmail.com).
